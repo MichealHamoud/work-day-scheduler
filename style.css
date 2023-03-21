@@ -8,7 +8,7 @@ body {
     border: none;
     resize: none;
     color: #000000;
-    border-left: 1px solid black;
+    border-left: 1px solid rgb(230, 223, 7);
     padding: 10px;
   }
   
@@ -25,7 +25,7 @@ body {
   }
   
   .hour {
-    background-color: #ffffff;
+    background-color: #fbf8f8;
     color: #000000;
     border-top: 1px dashed #000000;
   }
@@ -57,4 +57,3 @@ body {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
   }
-  
