@@ -16,7 +16,7 @@ $(function () {
 function textEntry(){
     $('.saveBtn').on('click', function(){
         var key = $(this).parent().attr('id');
-        var value = $(this).sibling('.description').val();
+        var value = $(this).siblings('.description').val();
         localStorage.setItem(key, value);
     });
 }
