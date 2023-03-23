@@ -1,9 +1,10 @@
-console.log('heheheheheheh');
 var localSettings = {};
-dayjs.local(localSettings); 
+dayjs.locale(localSettings); 
 $(function () {
+    //this gets the current time from day.js libarey
     var currentHour = dayjs().format('H');
-    function hourColor() {
+    //this function changes the color of each time block on whether its in 'past, present, and future' to suit the current time
+    function hourlyColor() {
         $('.time-block').each(function() {
             var blockHour = parseInt(this.id);
             $(this).toggleClass('past', blockHour < currentHour);
@@ -11,15 +12,15 @@ $(function () {
             $(this).toggleClass('furture', blockHour > currentHour);
         });
     }
-
+//this fucntion will allow the user to keep what ever informtaion he inputs to the schedular once the save button is clicked
 function textEntry(){
     $('.saveBtn').on('click', function(){
         var key = $(this).parent().attr('id');
         var value = $(this).sibling('.description').val();
-        localStorage.setItem(key. value);
+        localStorage.setItem(key, value);
     });
 }
-
+//the function below willl refresh all the time blocks to suit the time based on whether the time is in the past(grey), present(red) and future(green)
 function refreshColor(){
     $('.time-block').each(function(){
         var blockHour = parseInt(this.id);
@@ -32,12 +33,13 @@ function refreshColor(){
         }
     });
 }
+//this will grab the users input from local storge and apply it to the time block that he saved it in
 $('.time-block').each(function(){
     var key = $(this).attr('id');
     var value = localStorage.getItem(key);
     $(this).children('.description').val(value);
 });
-
+// this function updates the header of the page to match the time/date accouring to day.js
 function updateTime() {
     var dateElement = $('#date');
     var timeElement = $('#time');
@@ -46,8 +48,8 @@ function updateTime() {
     dateElement.text(currentDate);
     timeElement.text(currentTime);
 }
-
-hourColor();
+//call the main functions to the page
+hourlyColor();
 textEntry();
 refreshColor();
 
