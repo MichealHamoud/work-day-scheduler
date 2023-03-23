@@ -3,7 +3,7 @@ dayjs.locale(localSettings);
 $(function () {
     //this gets the current time from day.js libarey
     var currentHour = dayjs().format('H');
-    //this function changes the color of each time block on whether its in 'past, present, and future' to suit the current time
+    //this function changes the color of each time block on whether its in 'past, present, and future' to suit the current time.
     function hourlyColor() {
         $('.time-block').each(function() {
             var blockHour = parseInt(this.id);
